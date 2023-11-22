@@ -1,6 +1,6 @@
-python dependencies -> numpy
+python dependencies -> numpy <br>
                        pygame
-                       
-Usage: \n
-   ./maze_generator rows cols > maze.txt
-   python visualize_map.py maze.txt [path.txt]
+<br>
+Usage: <br>
+   ./maze_generator rows cols > maze.txt <br>
+   python visualize_map.py maze.txt [path.txt] <br>

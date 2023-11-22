@@ -33,6 +33,15 @@ def draw_reversed_triangle(j, i):
     if np.bitwise_and(maze[i][j], 2):
         pygame.draw.aaline(gameDisplay, white, bottom, top_right, blend = 0)
 
+screen_size = 800
+path_path = ""
+
+for i in sys.argv[2:]:
+    if(i.isnumeric()):
+        screen_size = int(i)
+    else:
+        path_path = i
+
 with open(sys.argv[1]) as f:
   rows,cols = np.fromfile(f, dtype=int, count=2, sep=" ")
   maze = np.fromfile(f, dtype=int, count=cols*rows, sep=" ").reshape((rows,cols))
@@ -41,9 +50,9 @@ print(maze)
 
 path = {}
 
-if(len(sys.argv) > 2):
+if(path_path != ""):
     i = 0
-    with open(sys.argv[2]) as f:
+    with open(path_path) as f:
         while 1:
             line = f.readline()
             if not line: 
@@ -52,13 +61,10 @@ if(len(sys.argv) > 2):
             path[(int(line[0]), int(line[1]))] = i
             i += 1
 
-print(path)
 
 pygame.init()
 
 white,black,red = (255,255,255),(0,0,0),(255,0,0)
-
-screen_size = 800
 
 gameDisplay = pygame.display.set_mode((screen_size, screen_size))
 
@@ -88,14 +94,6 @@ for i in range(0, rows):
         else:
             draw_reversed_triangle(j, i)
 
-pygame.display.update()
-
 pygame.image.save(gameDisplay, "maze.png")
-
-running = True
-while running:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
 
 pygame.quit()

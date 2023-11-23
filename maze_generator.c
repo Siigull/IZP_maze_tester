@@ -121,8 +121,8 @@ bool generate_perfect_from_full(Map *map, int row, int col, bool **vis) {
     bool x = generate_perfect_from_full(map, row+cell.row, col+cell.col, vis);
            
     if(x) {
-      map->cells[row*map->rows + col] &= ~moves[i];
-      map->cells[(row + cell.row)*map->rows + col + cell.col] &= ~(moves[i] == 4? 4 : moves[i] ^ 0b11);
+      map->cells[row*map->cols + col] &= ~moves[i];
+      map->cells[(row + cell.row)*map->cols + col + cell.col] &= ~(moves[i] == 4? 4 : moves[i] ^ 0b11);
     }
       
   }

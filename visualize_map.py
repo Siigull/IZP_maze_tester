@@ -66,13 +66,13 @@ pygame.init()
 
 white,black,red = (255,255,255),(0,0,0),(255,0,0)
 
-gameDisplay = pygame.display.set_mode((screen_size, screen_size))
-
 side = screen_size / max(rows, cols) 
 height = sqrt((side**2) - (side/2)**2)
 font_size = 20
 pad = 5
 line_width = 3
+
+gameDisplay = pygame.display.set_mode((screen_size/2 + side/2 + pad * 2, screen_size * (height / side) + pad * 2))
 
 print(height)
 

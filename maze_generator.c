@@ -30,7 +30,7 @@ Map* init_map(int rows, int cols) {
 
   for(int i=0; i < map->rows; i++) {
     for(int j=0; j < map->cols; j++) {
-      map->cells[i*map->rows + j] = 0;
+      map->cells[i*map->cols + j] = 0;
     }
   }
 
@@ -47,7 +47,7 @@ void print_map(Map *map) {
   
   for(int i=0; i < map->rows; i++) {
     for(int j=0; j < map->cols; j++) {
-      printf("%d ", map->cells[i*map->rows + j]);
+      printf("%d ", map->cells[i*map->cols + j]);
     }
     printf("\n");
   }
@@ -70,7 +70,7 @@ void shuffle(int arr[], int n) {
 void generate_full(Map *map) {
   for(int i=0; i < map->rows; i++) {
     for(int j=0; j < map->cols; j++) {
-      map->cells[i*map->rows + j] = 7;
+      map->cells[i*map->cols + j] = 7;
     }
   }
 }

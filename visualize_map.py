@@ -117,7 +117,7 @@ font_size = 24
 pad = 5
 line_width = 3
 
-gameDisplay = pygame.display.set_mode((side*((cols + 0.5)/2) + pad*2 + 30, height*rows + pad*2))
+gameDisplay = pygame.display.set_mode((side*((cols + 1)/2) + pad*2, height*rows + pad*2))
 
 print(height)
 
